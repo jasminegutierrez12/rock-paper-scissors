@@ -35,7 +35,8 @@ function game(){
     }
 
     if(playerScore > computerScore){
-        prompt("You win!!!"); 
+        window.alert("You win!!!" + "\nPlayers Final Score: " + playerScore + "\n Computer's Final Score: " + computerScore)
+
     }
     else if(playerScore < computerScore){
         prompt("You lose!!");
