@@ -39,10 +39,10 @@ function game(){
 
     }
     else if(playerScore < computerScore){
-        prompt("You lose!!");
+        alert("You lose!!");
     }
     else{
-        prompt("You both tied!! Try again next time!");
+        alert("You both tied!! Try again next time!");
     }
 
 }

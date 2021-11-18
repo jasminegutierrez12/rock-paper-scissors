@@ -1,0 +1,29 @@
+body{
+    background-color: #F3DBDB;
+}
+
+h1{
+    color: white;
+    text-shadow: 2px 2px pink;
+    text-align: center;
+    font-size: 68px;
+    
+}
+
+.content{
+    color: white;
+    text-shadow: 2px 2px pink;
+    text-align: left;
+    font-size: 40px;
+
+}
+
+#rulesText{
+    color: white;
+    text-shadow: 2px 2px pink;
+    text-align: left;
+    font-size: 40px;
+    border: 3px;
+    border-style: dashed;
+    border-color: red;
+}
