@@ -27,3 +27,12 @@ h1{
     border-style: dashed;
     border-color: red;
 }
+
+#btnContainer{
+    text-align: center;
+}
+
+button:hover{
+    background-color: blue;
+    color: white;
+}
