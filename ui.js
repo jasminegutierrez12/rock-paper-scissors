@@ -1,3 +1,4 @@
+/*
 // find and select container div
 
 const container = document.querySelector('div');
@@ -54,17 +55,12 @@ div_button.appendChild(btn_Rock);
 div_button.appendChild(btn_Scissors);
 div_button.appendChild(btn_Paper);
 
-
 // Make margin
 btn_Rock.style.margin = "100px";
 btn_Scissors.style.margin = "100px";
 btn_Paper.style.margin = "100px";
 
-
-
-
-
-
-
-
+// Create img tag
+//const img_Rock = document.createElement();
+*/
 
