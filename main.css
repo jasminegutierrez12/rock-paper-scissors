@@ -33,6 +33,9 @@ h1{
 }
 
 button:hover{
-    background-color: blue;
-    color: white;
+    cursor: pointer;
+}
+
+#btn_Rock, #btn_Paper, #btn_Scissors{
+    margin: 100px;
 }
