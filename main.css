@@ -1,8 +1,8 @@
-body{
+body {
     background-color: #F3DBDB;
 }
 
-h1{
+#gameTitle {
     color: white;
     text-shadow: 2px 2px pink;
     text-align: center;
@@ -10,15 +10,7 @@ h1{
     
 }
 
-.content{
-    color: white;
-    text-shadow: 2px 2px pink;
-    text-align: left;
-    font-size: 40px;
-
-}
-
-#rulesText{
+#gameRules {
     color: white;
     text-shadow: 2px 2px pink;
     text-align: left;
@@ -30,15 +22,36 @@ h1{
     padding: 20px;
 }
 
-.playerVs{
+#gameBoard {
+    color: white;
+    text-shadow: 2px 2px pink;
+    text-align: left;
+    font-size: 40px;
+}
+
+#gameRound {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#currentPlayerChoices {
+    display: flex;
+}
+
+
+#currentPlayerChoices {
+
+}
+
+.playerVs {
     text-align: center;
     color: white;
     text-shadow: 2px 2px pink;
-    font-size: 65px;
+    font-size: 35px;
     margin: 150px;
 }
 
-.border_btns{
+.border_btns {
     color: white;
     text-shadow: 2px 2px pink;
     text-align: left;
@@ -48,15 +61,15 @@ h1{
     border-color: red;
 }
 
-#btnContainer{
+#btnContainer {
     text-align: center;
-}
+}img
 
-button:hover{
+button:hover {
     cursor: pointer;
     background-color: #D11D27;;
 }
-.btn{
+.btn {
     margin: 50px;
     background-color: transparent;
     border: none;
@@ -69,7 +82,7 @@ button:hover{
     border-radius: 4px;
 }
 
-.btn_img{
+img {
     width: 200px;
     height: 100px;
 }
