@@ -79,7 +79,7 @@ function game(){
 
     //console.log("Computer choice:", computerPlay());
 
-    const TOTAL_ROUNDS = 5; 
+    const TOTAL_ROUNDS = 1; 
 
     let computerScore = 0;
 
@@ -87,7 +87,9 @@ function game(){
 
     for(let currentRound = 0; currentRound < TOTAL_ROUNDS; currentRound++){
         let computerSelection = computerPlay();
-        let playerSelection = getPlayerSelection();
+        // let playerSelection = getPlayerSelection();
+
+        
         
         let roundResults = playSingleRound(playerSelection, computerSelection);
 
@@ -106,7 +108,7 @@ function game(){
 
     console.log("Player's Score: ", playerScore);
     console.log("Computer's Score: ", computerScore);
-    
+
     if(playerScore === computerScore){
         console.log("Game is tied! No one wins! ;-;");
     }
@@ -116,46 +118,35 @@ function game(){
     else if(playerScore < computerScore){
         console.log("Computer wins!!!");
     }
-
-
-     //while(currentRound < totalRounds){  }
-        
-        /*playerSelection = prompt("Choose Rock, Paper, or Scissors");
-
-        if(playerSelection.toLowerCase() === "rock" || playerSelection.toLowerCase() === "paper" || playerSelection.toLowerCase() === "scissors"){
-            alert("Good Choice!!");
-            // console.log("Your selection: " + playerSelection);
-        }
-        else{
-            alert("Entered in the incorrect selection")
-            console.log("Wrong Choice: " + playerSelection);
-        }
-        */
-       
-
-        //console.log("player choice: " + playerSelection);
-        //computerChoice = computerPlay(computerGuess);
-        // console.log("Computer selection: " + computerChoice)
-        //playRound(playerSelection, computerChoice);
-        
-        /*currentRound++;
-        console.log("Current Round: " + currentRound);
-        console.log("Your score: " + playerScore);
-        console.log("Computers Score: " + computerScore)
-        */
-
-    /*if(playerScore > computerScore){
-        window.alert("You win!!!" + "\nPlayers Final Score: " + playerScore + "\n Computer's Final Score: " + computerScore)
-
-    }
-    else if(playerScore < computerScore){
-        alert("You lose!!");
-    }
-    else{
-        alert("You both tied!! Try again next time!");
-    }
-    */
-
 }
+/*
+let buttonRock = document.querySelector(".rockButton");
+let buttonPaper = document.querySelector(".paperButton");
+let buttonScissor = document.querySelector(".scissorButton");
 
-game();
+console.log(buttonRock);
+
+console.log(buttonPaper);
+
+console.log(buttonScissor);
+
+buttonRock.addEventListener('click', function(e){
+    console.log(e.target)
+});
+
+buttonPaper.addEventListener('click', function(e){
+    console.log(e.target)
+});
+
+buttonScissor.addEventListener('click', function(e){
+    console.log(e.target)
+});
+*/
+const buttons = document.querySelectorAll('.buttonChoice');
+
+buttons.forEach((button) =>{
+    button.addEventListener('click', ()=>{
+        console.log(button.id);
+    });
+});
+//game();

@@ -34,13 +34,19 @@ body {
     font-size: 1.5em;
 }
 
-#currentPlayerChoices {
+.container{
     display: flex;
+    background-color: blue;
 }
 
-
-#currentPlayerChoices {
-
+.container div{
+    background: peachpuff;
+    border: 4px solid brown;
+    height: 250px;
+    width: 250px;
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 30px;
 }
 
 .playerVs {
@@ -51,33 +57,21 @@ body {
     margin: 150px;
 }
 
-.border_btns {
-    color: white;
-    text-shadow: 2px 2px pink;
-    text-align: left;
-    font-size: 40px;
-    border: 3px;
-    border-style: double;
-    border-color: red;
-}
-
-#btnContainer {
+#buttonContainer {
     text-align: center;
-}img
+    padding: 25px;
+    margin: 25px;
+}
 
 button:hover {
     cursor: pointer;
     background-color: #D11D27;;
 }
-.btn {
-    margin: 50px;
+.buttonChoice {
     background-color: transparent;
     border: none;
     color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    border: 3px solid white;
     font-size: 16px;
     border-radius: 4px;
 }
