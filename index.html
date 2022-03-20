@@ -1,24 +1,32 @@
-<html><head>
+<html>
+<head>
   <title>Rock, paper, scissors</title>
   <meta charset="UTF-8">
-  <script src="gameplay.js"></script>
-  <script src="playRound.js"></script>
-  <!-- <script src="game.js"></script> -->
-  <script src="ui.js" defer=""></script>
+  <script src="game.js" defer></script>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>ROCK, PAPER, SCISSORS GAME!</h1>
-    <div id="container">
-      <div class="content">
-        <p id="rulesText">Rules: You have 3 choices Rock, Paper, and scissors. Click the images below to make your guess. There will be 5 rounds! Good luck!</p>
+  <h1 id="gameTitle">Rock, Paper, Scissors Game!</h1>
+  <p id="gameRules">Rules: You have 3 choices: Rock, Paper, and Scissors. Click the images below to make your guess. There will be a total of 5 rounds. Good luck!</p>
+  <div id="gameBoard">
+    <p id="gameRound">Round: 1 out of 5</p>
+    <div class="container">
+      <div id="userChoice">
+        <p>User Choice:</p>
+        <img src="images/rock_icon.png">
       </div>
-      <div class="border_btns" id="btnContainer">
-        <button class="btn" id="#btn_Rock"><img class="btn_img" id="rock_img" src="images/rock_icon.png"></button>
-        <button  class="btn" id="#btn_Scissors"><img class="btn_img" id="scissors_img" src="images/scissors_icon.png"></button>
-        <button  class="btn" id="#btn_Paper"><img class="btn_img" id="paper_img" src="images/paper_icon.png"></button>
-  <script>
-    //game();
-  </script>
+      <div><p>vs</p></div>
+      <div id="computerChoice">
+        <p>Computer's Choice:</p>
+         <img src="images/paper_icon.png">
+        </div>
+    </div>
 
-</body></html>
+    <div id="buttonContainer">
+      <button class="buttonChoice" id="rock"><img src="images/rock_icon.png"></button>
+      <button class="buttonChoice" id="paper"><img src="images/paper_icon.png"></button>
+      <button class="buttonChoice" id="scissors"><img src="images/scissors_icon.png"></button>
+    </div>
+  </div>
+</body>
+</html>
