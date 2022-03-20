@@ -11,6 +11,7 @@ function getRandomNumberBetweenZeroAndLimit(limit){
 function computerPlay(){
     return GAME_CHOICES[getRandomNumberBetweenZeroAndLimit(GAME_CHOICES_LENGTH)];
 }
+
 function createWinnerOfRoundString(playerSelection, computerSelection){
     return `You Win! ${playerSelection} beats ${computerSelection}`;
 }
@@ -24,7 +25,7 @@ function captalizeFirstLetterOfWord(word){
     return lowerCaseWord.charAt(0).toUpperCase() + lowerCaseWord.slice(1);
 }
 
-function playSingleRound(playerSelection, computerSelection){ 
+function getResultsOfRoundString(playerSelection, computerSelection){ 
 
     if(playerSelection === computerSelection){
         return "You Both Tie! No one wins! ;-;";
@@ -62,8 +63,8 @@ function getPlayerSelection(){
     let playerSelection;
 
     do {
-        playerSelection = prompt("Enter and Choose Rock, Paper, or Scissors");
-        playerSelection = captalizeFirstLetterOfWord(playerSelection);
+     
+    //playerSelection = captalizeFirstLetterOfWord(playerSelection);
     }
 
     while(!GAME_CHOICES.includes(playerSelection));
@@ -72,24 +73,29 @@ function getPlayerSelection(){
 
 }
 
+function playRound(){
+    let playerSelection = String(this.id);
+    let computerSelection = computerPlay();
+
+    let results = getResultsOfRoundString(playerSelection, computerSelection);
+}
 
 function game(){
-    // Your JavaScript goes here!
-    console.log("ROCK, PAPER, SCISSORS GAME!");
-
-    //console.log("Computer choice:", computerPlay());
-
     const TOTAL_ROUNDS = 1; 
 
     let computerScore = 0;
 
     let playerScore = 0; 
+    
+    const buttons = document.querySelectorAll('.buttonChoice');
 
-    for(let currentRound = 0; currentRound < TOTAL_ROUNDS; currentRound++){
+    buttons.forEach((button) =>{
+        button.addEventListener('click', playRound);
+    });
+
+    /*for(let currentRound = 0; currentRound < TOTAL_ROUNDS; currentRound++){
         let computerSelection = computerPlay();
         // let playerSelection = getPlayerSelection();
-
-        
         
         let roundResults = playSingleRound(playerSelection, computerSelection);
 
@@ -118,35 +124,7 @@ function game(){
     else if(playerScore < computerScore){
         console.log("Computer wins!!!");
     }
+    */
 }
-/*
-let buttonRock = document.querySelector(".rockButton");
-let buttonPaper = document.querySelector(".paperButton");
-let buttonScissor = document.querySelector(".scissorButton");
 
-console.log(buttonRock);
-
-console.log(buttonPaper);
-
-console.log(buttonScissor);
-
-buttonRock.addEventListener('click', function(e){
-    console.log(e.target)
-});
-
-buttonPaper.addEventListener('click', function(e){
-    console.log(e.target)
-});
-
-buttonScissor.addEventListener('click', function(e){
-    console.log(e.target)
-});
-*/
-const buttons = document.querySelectorAll('.buttonChoice');
-
-buttons.forEach((button) =>{
-    button.addEventListener('click', ()=>{
-        console.log(button.id);
-    });
-});
-//game();
+game();
