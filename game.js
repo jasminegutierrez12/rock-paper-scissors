@@ -62,17 +62,29 @@ function playRound(){
     const currentRound = getCurrentRound();
     const results = getResultsOfRoundString(playerSelection, computerSelection);
     const MAX_ROUND = 5;
+    const isFinalRound = currentRound >= MAX_ROUND; 
 
     updateUIImageOfPlayer(playerSelection);
     updateUIImageOfComputer(computerSelection);
     updateUIWithRoundResults(results); 
     updateUIScoresWithRoundResults(results);
-    if(currentRound < MAX_ROUND){
+    
+    if(!isFinalRound){
         incrementRound();
     }
     else{
+        showFinalResultsOfTheGame();
         resetRound();
         resetPlayerAndComputerScore();
+        setTimeout(function(){
+            resetResults();
+        }, 2000);
+        setTimeout(function(){
+            resetImages();
+        }, 500)
+        setTimeout(function(){
+            resetUIRoundResults();
+        }, 1000)
     }
 }
 
@@ -99,6 +111,11 @@ function incrementRound(){
 function updateUIWithRoundResults(results){
     const roundResultsNode = document.querySelector("#roundResults");
     roundResultsNode.textContent = results; 
+}
+
+function resetUIRoundResults(){
+    const roundResultsNode = document.querySelector("#roundResults");
+    roundResultsNode.textContent = " "; 
 }
 
 function updateUIScoresWithRoundResults(results){
@@ -151,6 +168,37 @@ function resetPlayerAndComputerScore(){
 
 }
 
+function showFinalResultsOfTheGame(){
+    const finalResultsNode = document.querySelector("#finalRoundResults");
+    const playerScoreNode = document.querySelector("#playerScore");
+    const playerScore = parseInt(playerScoreNode.textContent);
+    const computerScoreNode = document.querySelector("#computerScore");
+    const computerScore = parseInt(computerScoreNode.textContent);
+
+    if(playerScore === computerScore){
+        finalResultsNode.textContent = "Game is tied! No one wins! ;-;";
+    }
+    if(playerScore > computerScore){
+        finalResultsNode.textContent = "Player wins!!!";
+    }
+    else if(playerScore < computerScore){
+        finalResultsNode.textContent = "Computer wins!!!";
+    }
+}
+
+function resetResults(){
+    const finalResultsNode = document.querySelector("#finalRoundResults");
+    finalResultsNode.textContent = " ";
+}
+
+function resetImages(){
+    const playerImgNode = document.querySelector(".playerImgChoice");
+    const computerImgNode = document.querySelector(".computerImgChoice");
+
+    playerImgNode.src = "";
+    computerImgNode.src = "";
+}
+
 function game(){
     const TOTAL_ROUNDS = 1; 
 
@@ -163,39 +211,6 @@ function game(){
     buttons.forEach((button) =>{
         button.addEventListener('click', playRound);
     });
-
-    /*for(let currentRound = 0; currentRound < TOTAL_ROUNDS; currentRound++){
-        let computerSelection = computerPlay();
-        // let playerSelection = getPlayerSelection();
-        
-        let roundResults = playSingleRound(playerSelection, computerSelection);
-
-    
-        if(roundResults.includes("Win")){
-            playerScore++;
-        }
-
-        else if(roundResults.includes("Lose")){
-            computerScore++;
-        }
-
-        console.log(roundResults);
-        
-    }
-
-    console.log("Player's Score: ", playerScore);
-    console.log("Computer's Score: ", computerScore);
-
-    if(playerScore === computerScore){
-        console.log("Game is tied! No one wins! ;-;");
-    }
-    if(playerScore > computerScore){
-        console.log("Player wins!!!");
-    }
-    else if(playerScore < computerScore){
-        console.log("Computer wins!!!");
-    }
-    */
 }
 
 game();
