@@ -1,5 +1,4 @@
 
-//let playerSelection; 
 const GAME_CHOICES = ['Rock', 'Paper', 'Scissors'];
 const GAME_CHOICES_LENGTH = GAME_CHOICES.length;
 
@@ -7,7 +6,6 @@ function getRandomNumberBetweenZeroAndLimit(limit){
     return Math.floor(Math.random() * limit);
 }
 
-// export allows you to use it in another file
 function computerPlay(){
     return GAME_CHOICES[getRandomNumberBetweenZeroAndLimit(GAME_CHOICES_LENGTH)];
 }
@@ -74,11 +72,75 @@ function getPlayerSelection(){
 }
 
 function playRound(){
-    let playerSelection = String(this.id);
-    let computerSelection = computerPlay();
+    const playerSelection = String(this.id);
+    const computerSelection = computerPlay();
 
-    let results = getResultsOfRoundString(playerSelection, computerSelection);
+    const results = getResultsOfRoundString(playerSelection, computerSelection);
+    updateUIWithRoundResults(results)
+    updateUIScoresWithRoundResults(results);
+    updateRound();
+    updateUIImageOfPlayer(playerSelection);
+    updateUIImageOfComputer(computerSelection);
 }
+
+function updateRound(){
+    const currentRoundNode = document.querySelector("#currentRound");
+    const currentRound = parseInt(currentRoundNode.textContent);
+    const MAX_ROUND = 5;
+    
+    if(currentRound < MAX_ROUND){
+        currentRoundNode.textContent = currentRound + 1;
+    }
+    else{
+        currentRoundNode.textContent = "1";
+    }
+}
+
+function updateUIWithRoundResults(results){
+    const roundResultsNode = document.querySelector("#roundResults");
+    roundResultsNode.textContent = results; 
+}
+
+function updateUIScoresWithRoundResults(results){
+    const playerScoreNode = document.querySelector("#playerScore");
+    const playerScore = parseInt(playerScoreNode.textContent);
+    const computerScoreNode = document.querySelector("#computerScore");
+    const computerScore = parseInt(computerScoreNode.textContent);
+
+    if(results.includes("Win")){
+        playerScoreNode.textContent = playerScore + 1;
+    }
+
+    else if(results.includes("Lose")){
+        computerScoreNode.textContent = computerScore + 1;
+    }
+}
+function updateUIImageOfComputer(computerSelection){
+    const computerImgNode = document.querySelector(".computerImgChoice");
+    if(computerSelection === "Rock"){
+        computerImgNode.src = "images/rock_icon.png"
+    }
+    else if(computerSelection === "Paper"){
+        computerImgNode.src = "images/paper_icon.png"
+    }
+    else if(computerSelection === "Scissors"){
+        computerImgNode.src = "images/scissors_icon.png"
+    }
+}
+
+function updateUIImageOfPlayer(playerSelection){
+    const playerImgNode = document.querySelector(".playerImgChoice");
+    if(playerSelection === "Rock"){
+        playerImgNode.src = "images/rock_icon.png"
+    }
+    else if(playerSelection === "Paper"){
+        playerImgNode.src = "images/paper_icon.png"
+    }
+    else if(playerSelection === "Scissors"){
+        playerImgNode.src = "images/scissors_icon.png"
+    }
+}
+
 
 function game(){
     const TOTAL_ROUNDS = 1; 

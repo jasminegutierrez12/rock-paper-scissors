@@ -9,16 +9,20 @@
   <h1 id="gameTitle">Rock, Paper, Scissors Game!</h1>
   <p id="gameRules">Rules: You have 3 choices: Rock, Paper, and Scissors. Click the images below to make your guess. There will be a total of 5 rounds. Good luck!</p>
   <div id="gameBoard">
-    <p id="gameRound">Round: 1 out of 5</p>
+    <p class="textStyling" id="gameRound">Round: <b id="currentRound">1</b> out of 5</p>
+    <p class="textStyling" id="roundResults"></p>
     <div class="container">
       <div id="userChoice">
         <p>User Choice:</p>
-        <img src="images/rock_icon.png">
+        <img class="playerImgChoice" src="">
       </div>
-      <div><p>vs</p></div>
+      <div>
+        <p>Player Score: <b id="playerScore">0</b> </p>
+        <p>Computer Score: <b id="computerScore">0</b></p>
+      </div>
       <div id="computerChoice">
         <p>Computer's Choice:</p>
-         <img src="images/paper_icon.png">
+         <img class="computerImgChoice" src="">
         </div>
     </div>
 
