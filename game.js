@@ -1,12 +1,11 @@
 
-const GAME_CHOICES = ['Rock', 'Paper', 'Scissors'];
-const GAME_CHOICES_LENGTH = GAME_CHOICES.length;
-
 function getRandomNumberBetweenZeroAndLimit(limit){
     return Math.floor(Math.random() * limit);
 }
 
 function computerPlay(){
+    const GAME_CHOICES = ['Rock', 'Paper', 'Scissors'];
+    const GAME_CHOICES_LENGTH = GAME_CHOICES.length;
     return GAME_CHOICES[getRandomNumberBetweenZeroAndLimit(GAME_CHOICES_LENGTH)];
 }
 
@@ -57,43 +56,44 @@ function getResultsOfRoundString(playerSelection, computerSelection){
     }
 }
 
-function getPlayerSelection(){
-    let playerSelection;
-
-    do {
-     
-    //playerSelection = captalizeFirstLetterOfWord(playerSelection);
-    }
-
-    while(!GAME_CHOICES.includes(playerSelection));
-
-    return playerSelection;
-
-}
-
 function playRound(){
     const playerSelection = String(this.id);
     const computerSelection = computerPlay();
-
+    const currentRound = getCurrentRound();
     const results = getResultsOfRoundString(playerSelection, computerSelection);
-    updateUIWithRoundResults(results)
-    updateUIScoresWithRoundResults(results);
-    updateRound();
+    const MAX_ROUND = 5;
+
     updateUIImageOfPlayer(playerSelection);
     updateUIImageOfComputer(computerSelection);
-}
-
-function updateRound(){
-    const currentRoundNode = document.querySelector("#currentRound");
-    const currentRound = parseInt(currentRoundNode.textContent);
-    const MAX_ROUND = 5;
-    
+    updateUIWithRoundResults(results); 
+    updateUIScoresWithRoundResults(results);
     if(currentRound < MAX_ROUND){
-        currentRoundNode.textContent = currentRound + 1;
+        incrementRound();
     }
     else{
-        currentRoundNode.textContent = "1";
+        resetRound();
+        resetPlayerAndComputerScore();
     }
+}
+
+function setCurrentRound(currentRound){
+    const currentRoundNode = document.querySelector("#currentRound");
+    currentRoundNode.textContent = currentRound;
+}
+
+function getCurrentRound(){
+    const currentRoundNode = document.querySelector("#currentRound");
+    const currentRound = parseInt(currentRoundNode.textContent);
+    return currentRound;
+}
+
+function resetRound(){
+    setCurrentRound(1);
+}
+
+function incrementRound(){
+    const currentRound = getCurrentRound();
+    setCurrentRound(currentRound+1);
 }
 
 function updateUIWithRoundResults(results){
@@ -115,6 +115,7 @@ function updateUIScoresWithRoundResults(results){
         computerScoreNode.textContent = computerScore + 1;
     }
 }
+
 function updateUIImageOfComputer(computerSelection){
     const computerImgNode = document.querySelector(".computerImgChoice");
     if(computerSelection === "Rock"){
@@ -141,6 +142,14 @@ function updateUIImageOfPlayer(playerSelection){
     }
 }
 
+function resetPlayerAndComputerScore(){
+    const playerScore = document.querySelector("#playerScore");
+    const computerScore = document.querySelector("#computerScore");
+    
+    playerScore.textContent = "0";
+    computerScore.textContent = "0";
+
+}
 
 function game(){
     const TOTAL_ROUNDS = 1; 
